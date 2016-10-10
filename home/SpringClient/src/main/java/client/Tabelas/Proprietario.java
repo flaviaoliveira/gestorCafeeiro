@@ -18,26 +18,16 @@ public class Proprietario implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	private int id_proprietario;
-	 
+	@Id 
 	private String cpf;
 	
 	private String  email;
 	
 	private String  nome;
 	
-	private Integer senha;
+	private String senha;
 	
-	public int getId() {
-		return id_proprietario;
-	}
-
-	public void setId(int id) {
-		this.id_proprietario = id;
-	}
-
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -62,15 +52,22 @@ public class Proprietario implements Serializable {
 		this.nome = nome;
 	}
 
-	public Integer getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(Integer senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-	
+	public void preencheProprietario(String cpf,String  email, String  nome, String senha){
+		Proprietario prop = new Proprietario();
+		prop.setCpf(cpf);
+		prop.setEmail(email);
+		prop.setNome(nome);
+		prop.setSenha(senha);
+
+	}
 	
 	
 }

@@ -1,8 +1,16 @@
 package client.controller;
 
+
+import javax.persistence.EntityManager;
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import client.BDManege.DBManager;
+import client.Tabelas.*;
 
 /*
  * Aqui fica o controller do serviço.
@@ -23,26 +31,23 @@ public class ClientController {
 //	"value" define o nome mapeado para o método e "method" define o método aceito.
 	@RequestMapping(value="/getClientName")
 	public String getClientName(@RequestParam(value="id", defaultValue="0") Integer id) {
-//		Conforme dito anteriormente, o retorno do método mapeia uma página de retorno
-//		mapeada na forma "PREFIXO + RETORNO + SUFIXO"
-//		Neste exemplo teríamos: "/WEB-INF/jsp/teste/page.jsp"
-//		esta estrutora deve estar na pasta "src/main/webapp" do projeto.
 		return "telas/login";
 	}
-	@RequestMapping(value="cadastraProdutor")
 	
-	public String cadastroProdutor(){
-		
+	@RequestMapping(value="/cadastraProdutor")
+	public String cadastroProdutor(@Valid Proprietario prop,BindingResult result){
+		DBManager.getInstance();
 		return "telas/login";
 	}
+	
+	
 	@RequestMapping("criarconta")
 	public String criar(){	
-		System.out.println("entrou");
 		return "telas/cadastro";
 	}
+	
 	@RequestMapping("paginaprincipal")
 	public String paginaprincipal(){	
-		//System.out.println("entrou");
 		return "telas/page";
 	}
 	

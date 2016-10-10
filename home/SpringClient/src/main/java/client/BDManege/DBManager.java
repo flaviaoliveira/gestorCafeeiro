@@ -6,18 +6,28 @@ import javax.persistence.Persistence;
 
 public final class DBManager {
 
+	private static DBManager dbManager = null;
+	
 	private static EntityManagerFactory factory;
 	
-	public DBManager() {
-		factory = Persistence.createEntityManagerFactory("gestorcafeeirodb");
+	private DBManager() {
+		factory = Persistence.createEntityManagerFactory("gestorcafeeirobd");
 	}
-
-	public DBManager(String persistenceUnit) {
-		factory = Persistence.createEntityManagerFactory(persistenceUnit);
+	
+	public static DBManager getInstance() {
+		if (dbManager == null) {
+			dbManager = new DBManager();
+		}
+		return dbManager;
 	}
 
 	public static EntityManager getEntityManager() {
 		return factory.createEntityManager();
 	}
 
+	public static void close() {
+		if (factory.isOpen()) {
+			factory.close();
+		}
+	}
 }

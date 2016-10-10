@@ -3,6 +3,8 @@ package client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+
 //A anotação abaixo adiciona algumas outras anotações automaticamente.
 //No tutorial disponível em "https://spring.io/guides/gs/serving-web-content/"
 //há uma boa explicação sobre esta parte.
@@ -15,5 +17,6 @@ public class Application {
 	public static void main(String[] args) {
 //		Método do Spring usado para começar a rodar a aplicação.
 		SpringApplication.run(Application.class, args);
+		
 	}
 }

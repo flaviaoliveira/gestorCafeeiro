@@ -126,6 +126,11 @@
 	<artifactId>hibernate-c3p0</artifactId>
 	<version>5.0.0.Final</version>
 </dependency>
+<!-- <dependency> -->
+<!-- 	<groupId>com.sv.db</groupId> -->
+<!-- 	<artifactId>Cortix7_database</artifactId> -->
+<!-- 	<version>0.0.1</version> -->
+<!-- </dependency> -->
 	<!-- adicionada para corrigir problema do hibernate com o spring (VERIFICAR O MOTIVO DO ERRO) -->
 <dependency>
 	<groupId>xml-apis</groupId>
