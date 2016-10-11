@@ -3,6 +3,8 @@ package client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import client.BDManege.DBManager;
+
 
 
 //A anotação abaixo adiciona algumas outras anotações automaticamente.
@@ -17,6 +19,7 @@ public class Application {
 	public static void main(String[] args) {
 //		Método do Spring usado para começar a rodar a aplicação.
 		SpringApplication.run(Application.class, args);
+		 DBManager.getInstance();
 		
 	}
 }

@@ -2,29 +2,36 @@ package client.Tabelas;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
 @Table
-@Embeddable
-public class Proprietario implements Serializable {
-	 /**
-	 * 
-	 */
+public class Produtor implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id 
+	@NotNull(message = "Campo Obrigatório!")
+	@Column
 	private String cpf;
+ 
 	
+	@NotNull(message = "Campo Obrigatório!")
+	@Column
 	private String  email;
 	
+	@NotNull(message = "Campo Obrigatório!")
+	@Column
 	private String  nome;
 	
+	@NotNull(message = "Campo Obrigatório!")@Size(min=6, message = "Minimo 6 caracteres!")
+	@Column
 	private String senha;
 	
 	
@@ -58,15 +65,6 @@ public class Proprietario implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public void preencheProprietario(String cpf,String  email, String  nome, String senha){
-		Proprietario prop = new Proprietario();
-		prop.setCpf(cpf);
-		prop.setEmail(email);
-		prop.setNome(nome);
-		prop.setSenha(senha);
-
 	}
 	
 	
