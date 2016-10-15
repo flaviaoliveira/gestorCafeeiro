@@ -1,12 +1,15 @@
 package client.Tabelas;
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -18,15 +21,40 @@ public class Propriedade implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@Column
 	@GeneratedValue
 	private int id_propriedade;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String nome;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private double lavoura_tamanho;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private double propriedade_tamanho;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String estado;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String cidade;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String municipio;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private double altitude;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private int covas_numero;
 	
 	public int getId() {

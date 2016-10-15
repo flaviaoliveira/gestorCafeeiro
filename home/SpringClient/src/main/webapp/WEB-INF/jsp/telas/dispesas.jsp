@@ -41,31 +41,41 @@
     <div class="container">
        
         <!-- Team Members Row -->
-        <div class="row">
+        <div class="row">		
             <div class="col-lg-12">
-                <h3 class="page-header">Escolha qual o tipo da despeza que vai registrar!</h3>
+                <h3 class="page-header">Escolha a despesa que irá registrar!</h3>
             </div>
+			 <a href="#"  class="category category-3">
             <div class="col-lg-2 col-sm-2 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/plantio.jpg" alt="">
                 <h4>Plantio</h4>  
             </div>
-
+            </a>
+			 <a href="#"  class="category category-3">
             <div class="col-lg-2 col-sm-2 text-center">
-                <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/insumo.jpg" alt="">
+                <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/insumo.JPG" alt="">
                 <h4>Aplicação de Insumos</h4>
             </div>
+            </a>
+			 <a href="#"  class="category category-3">
             <div class="col-lg-2 col-sm-2 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/manutencao.jpg" alt="">
                 <h4>Manutenção </h4>
             </div>
+            </a>
+			 <a href="#"  class="category category-3">
             <div class="col-lg-2 col-sm-2 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/colheita.jpg" alt="">
                 <h4>Colheita</h4>
             </div>
+            </a>
+			 <a href="#"  class="category category-3">
             <div class="col-lg-2 col-sm-2 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/beneficiamento.jpg" alt="">
                 <h4>Beneficiamento</h4>
             </div>
+            </a>
+
         </div>
         <hr>
 

@@ -1,5 +1,6 @@
 package client.tabelasDAO;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,8 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.websocket.Session;
 
+import org.hibernate.exception.internal.SQLExceptionTypeDelegate;
+
 import client.BDManege.DBManager;
 import client.Tabelas.Produtor;
 
@@ -16,8 +19,8 @@ public class ProdutorDAO {
 	 @PersistenceContext
 	 private static EntityManager manager;
 	 
-	 public void insereProdutor(Produtor produtor){	
-		  manager = DBManager.getEntityManager();
+	 public void insereProdutor(Produtor produtor) throws SQLException{	
+		 manager = DBManager.getEntityManager();
           manager.getTransaction().begin();		     
 		  manager.persist(produtor);
 		  manager.flush();
@@ -27,7 +30,8 @@ public class ProdutorDAO {
 		
 	 }
 
-	public Produtor find(Login log) {
+	public Produtor find(Login log)throws SQLException {
+		
 		manager = DBManager.getEntityManager();
         manager.getTransaction().begin();	
         TypedQuery<Produtor>  query = manager.createQuery(
@@ -43,9 +47,9 @@ public class ProdutorDAO {
 	     manager.clear();
 	     manager.getTransaction().commit();
 	     manager.close();
-	     System.out.println(log.getEmail());
-	     System.out.println(log.getSenha());
-		 System.out.println(results.size());
+	     
+	     if(results.size()==1)
+	    	 return results.get(0);
 		return null;
 	}
 }

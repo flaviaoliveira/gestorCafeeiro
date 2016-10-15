@@ -45,23 +45,30 @@
             <div class="col-lg-10">
                 <h2 class="page-header">Bem vindo(a) ao Gestor Cafeeiro!</h2>
             </div>
-            <div class="col-lg-3 col-sm-3 text-center">
+            <a href="despesas"  class="category category-3">
+            <div class="col-lg-3 col-sm-3 text-center"> 
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/gasto.jpg" alt="">
                 <h4>Registrar Despesas</h4>  
-            </div>
-
+             </div> 
+			</a>
+			 <a href="recomendacao"  class="category category-3">
             <div class="col-lg-3 col-sm-3 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/solo.jpg" alt="">
                 <h4>Recomendação de Adubação e Calagem</h4>
             </div>
+            </a>
+			 <a href="pragasdoencas"  class="category category-3">
             <div class="col-lg-3 col-sm-3 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/praga.jpg" alt="">
                 <h4>Registrar Ocorrência de Pragas e Doenças </h4>
             </div>
+            </a>
+			 <a href="relatorios"  class="category category-3">
             <div class="col-lg-3 col-sm-3 text-center">
                 <img class="img-circle img-responsive img-center" src="/assets/bootstrap-3.3.5-dist/img/relatório.jpg" alt="">
                 <h4>Visualizar Relatórios</h4>
             </div>
+            </a>
         </div>
         <hr>
 

@@ -53,9 +53,16 @@
                     <li>
                         <a href="#">EDITAR PERFIL </a>
                     </li>
-                     <li>
-                        <a href="#">SAIR</a>
+                    <li>
+                        <a href="#">SOBRE</a>
                     </li>
+                    <li>
+                        <a href="#">CONTATOS</a>
+                    </li>
+                     <li>
+                        <a href="logout">SAIR</a>
+                    </li>
+                    
 
                 </ul>
             </div>

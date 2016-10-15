@@ -26,7 +26,7 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="paginaprincipal" role="form">
+					<form method="POST" action="efetuaLogin" role="form">
 						<div class="form-group">
 							<h2>Login </h2>
 						</div>
@@ -36,7 +36,7 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="Senha">Senha</label> <input
-								name= "senha" type="password" maxlength="11" class="form-control">
+							 	name= "senha" type="password" maxlength="11" class="form-control">
 						</div>
 						
 						
@@ -45,7 +45,7 @@
 							class="btn btn-info btn-block">Entrar</button>
 						</div>						
 					</form>
-					<form method="POST" action="cadastraProdutor">
+					<form method="POST" action="cadastro">
 						<div class="form-group">
 							<button id="conta" type="submit" value ="Cadastrar Produtor"
 								class="btn btn-block">Criar uma Conta</button>

@@ -2,13 +2,17 @@ package client.Tabelas;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -17,24 +21,40 @@ public class Produtor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id 
-	@NotNull(message = "Campo Obrigatório!")
+	@GeneratedValue
+	private Integer id_produtor;
+	 
+	
 	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String cpf;
  
 	
-	@NotNull(message = "Campo Obrigatório!")
+	
 	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String  email;
 	
-	@NotNull(message = "Campo Obrigatório!")
+	
 	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String  nome;
 	
-	@NotNull(message = "Campo Obrigatório!")@Size(min=6, message = "Minimo 6 caracteres!")
+	
 	@Column
+	@NotNull(message = "Campo Obrigatório!")@Size(min=6, message = "Minimo 6 caracteres!")
 	private String senha;
 	
 	
+	
+	public Integer getId_produtor() {
+		return id_produtor;
+	}
+
+	public void setId_produtor(Integer id_produtor) {
+		this.id_produtor = id_produtor;
+	}
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -66,6 +86,5 @@ public class Produtor implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 	
 }
