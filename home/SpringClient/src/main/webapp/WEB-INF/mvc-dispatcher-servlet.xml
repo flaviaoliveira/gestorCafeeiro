@@ -28,4 +28,9 @@
 		<property name="basename" value="messages" />
 	</bean>
 	
+	<mvc:interceptors>
+      <bean class=
+    "client.interceptor.AutorizadorInterceptor.java" />
+</mvc:interceptors>
+	
 </beans>

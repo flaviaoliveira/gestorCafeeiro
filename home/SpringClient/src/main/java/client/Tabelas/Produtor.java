@@ -27,22 +27,26 @@ public class Produtor implements Serializable {
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
+	@Size(min=11)
 	private String cpf;
  
 	
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
+	@Size(min=10)
 	private String  email;
 	
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
+	@Size(min=2)
 	private String  nome;
 	
 	
 	@Column
-	@NotNull(message = "Campo Obrigatório!")@Size(min=6, message = "Minimo 6 caracteres!")
+	@NotNull(message = "Campo Obrigatório!")
+	@Size(min=6, message = "Minimo 6 caracteres!")
 	private String senha;
 	
 	

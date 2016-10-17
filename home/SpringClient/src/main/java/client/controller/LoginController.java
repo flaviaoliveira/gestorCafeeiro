@@ -8,6 +8,8 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import client.Tabelas.Produtor;
 import client.tabelasDAO.Login;
@@ -18,7 +20,7 @@ import client.tabelasDAO.ProdutorDAO;
 public class LoginController {
 
 	
-	//Controler Login
+
 	@RequestMapping("loginForm")
 	  public String loginForm() {
 	    return "telas/login";
@@ -34,7 +36,7 @@ public class LoginController {
 			if (usuario != null) {
 				session.setAttribute("usuarioLogado", usuario);
 				return "telas/page";
-			}
+			}	
 			return "redirect:loginForm";
 		}
 	}

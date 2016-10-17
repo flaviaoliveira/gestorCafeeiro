@@ -37,7 +37,166 @@
 	</div>
 	</nav>
   <!-- Page Content -->
-<!--   ///////////////////////////////////////////// -->
+<hr>
+	<hr>
+
+	<div class="container" style="width: 60%">
+
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<form method="POST" action="">
+						<div class="form-group">
+							<h2>Recomendação de Adubação e Calagem</h2>
+						</div>
+						
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label" for="nome">Lavoura:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label" for="nome">Talhão:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<h4>Resultado da análise feita:</h4>
+						</div>
+						<div class="col-lg-4">
+						<table class="table">
+							<thead class="thead-inverse">
+								<tr>
+									<th>M.O</th>
+									<th><input name="nome" type="text" class="form-control" placeholder="dag/dm³"></th>	
+								</tr>
+								<tr>
+									<th>pH</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="unid."></th>	
+								</tr>
+								<tr>
+									<th>P</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>K</th>
+									<th><input name="nome" type="text" class="form-control" placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Ca</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Mg</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Al</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+								<tr>
+									<th>H+Al </th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+								
+								<tr>
+									<th>S.B</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+							</thead>
+							
+						</table>
+				</div>
+				<div class="col-lg-4">
+						<table class="table">
+							<thead class="thead-inverse">
+								<tr>
+									<th>CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="cmolc/dm³"></th>	
+								</tr>
+								<tr>
+									<th>V%</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>%K CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>%Ca CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>%Mg CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>%Al CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>%H+Al CTC</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="%"></th>	
+								</tr>
+								<tr>
+									<th>P-res</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								
+							</thead>
+							
+						</table>
+				</div>
+				<div class="col-lg-4">
+						<table class="table">
+							<thead class="thead-inverse">
+							    <tr>
+									<th>P-rem</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/L"></th>	
+								</tr>
+								<tr>
+									<th>Na</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>S</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>B</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Zn</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Mn</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Cu</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+								<tr>
+									<th>Fe</th>
+									<th><input name="nome" type="text" class="form-control"placeholder="mg/dm³"></th>	
+								</tr>
+							</thead>
+							
+						</table>
+				</div>
+                     <div class="form-group" style="width: 40%">
+							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Salvar e Avançar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
         <!-- Footer -->
         <footer>

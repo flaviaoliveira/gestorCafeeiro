@@ -38,6 +38,9 @@ public class Propriedade implements Serializable{
 	private double propriedade_tamanho;
 	
 	@Column
+	private String tipo_tamanho;
+	
+	@Column
 	@NotNull(message = "Campo Obrigatório!")
 	private String estado;
 	
@@ -50,8 +53,10 @@ public class Propriedade implements Serializable{
 	private String municipio;
 	
 	@Column
-	@NotNull(message = "Campo Obrigatório!")
 	private double altitude;
+		
+	@Column
+	private String tipo_cafe;
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
@@ -111,6 +116,17 @@ public class Propriedade implements Serializable{
 	public void setCovas_numero(int covas_numero) {
 		this.covas_numero = covas_numero;
 	}
-	
+	public String getTipo_cafe() {
+		return tipo_cafe;
+	}
+	public void setTipo_cafe(String tipo_cafe) {
+		this.tipo_cafe = tipo_cafe;
+	}
+	public String getTipo_tamanho() {
+		return tipo_tamanho;
+	}
+	public void setTipo_tamanho(String tipo_tamanho) {
+		this.tipo_tamanho = tipo_tamanho;
+	}
 	
 }

@@ -45,40 +45,59 @@
 	<hr>
 	<hr>
 
-	<div class="container" style="width: 40%">
+	<div class="container" style="width: 60%">
 
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
 					<form method="POST" action="">
 						<div class="form-group">
-							<h2>Relatórios</h2>
+							<h2>Cadastrar talhões</h2>
 						</div>
-						<div class="form-group">
-							<label class="control-label" for="nome">Lavoura:</label> <input
-								name="nome" type="text" maxlength="50" class="form-control">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label" for="nome">Nome:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="nome">Tamanho:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+							</div>
+							
+							<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label" for="nome">Variedade do café:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="nome">Qualidade do café:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
+							</div>
+							<div class="form-group">
+							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Adicionar</button>
 						</div>
-						<div class="form-group">
-							<label><input type="radio" name="optradio">Em um ano especifico.</label>
 						</div>
+						
 						<div class="form-group">
-							<label class="control-label" for="nome">Ano:</label> <input
-								name="nome" type="text" maxlength="50" class="form-control">
+							<h4>Talhões Adicionados:</h4>
 						</div>
-						<div class="form-group">
-							<label><input type="radio" name="optradio">Em um intervalo de anos.</label>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="nome">Ano inicial:</label> <input
-								name="nome" type="text" maxlength="50" class="form-control">
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="nome">Ano final:</label> <input
-								name="nome" type="text" maxlength="50" class="form-control">
-						</div>
-						<div class="form-group">
-							<button id="cadastraTalhao" type="submit"
-								class="btn btn-info btn-block">Gerar</button>
+						
+						<table class="table">
+							<thead class="thead-inverse">
+								<tr>
+									<th>Name</th>
+									<th>Tamanho</th>
+									<th>Variedade do Café</th>
+									<th>Qualidade do Café</th>
+									<th>Opção</th>
+								</tr>
+							</thead>
+							
+						</table>
+				
+                     <div class="form-group" style="width: 30%">
+							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Concluir</button>
 						</div>
 					</form>
 				</div>
@@ -97,6 +116,7 @@
 		<!-- /.row -->
 	</footer>
 
+	</div>
 	<!-- /.container -->
 
 	<!-- jQuery -->

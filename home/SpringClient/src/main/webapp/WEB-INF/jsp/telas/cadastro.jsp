@@ -35,7 +35,7 @@
 							<h2>Criando uma Conta </h2>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group" >
 							<label class="control-label" for="nome" >Nome</label> 
 							<input name="nome" type="text" maxlength="50" class="form-control">
 						    <form:errors path= "Produtor.nome"/>

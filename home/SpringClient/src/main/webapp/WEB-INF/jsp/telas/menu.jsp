@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">CADASTRAR LAVOURA</a>
+                        <a href="cadastralavoura">CADASTRAR LAVOURA</a>
                     </li>
                     <li>
                         <a href="#">REALIZAR PESQUISAS</a>

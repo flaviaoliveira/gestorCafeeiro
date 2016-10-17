@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import client.Tabelas.Produtor;
 import client.tabelasDAO.ProdutorDAO;
@@ -18,10 +19,10 @@ public class ProdutorController {
 			public String cadastroProdutor(@Valid Produtor prop, BindingResult result) throws SQLException{
 				ProdutorDAO prod = new ProdutorDAO();
 				prod.insereProdutor(prop);
-				if(result.hasErrors() && result.hasFieldErrors()){
-					return "telas/cadastro";
+				if(result.hasErrors()){
+					return "cadastro";
 				}
-				return "telas/login";
+				return "redirect:loginForm";
 			}
 			 @RequestMapping("cadastro")
 			  public String cadastro() {
