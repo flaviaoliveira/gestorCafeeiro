@@ -20,7 +20,7 @@ public class ProdutorController {
 				ProdutorDAO prod = new ProdutorDAO();
 				prod.insereProdutor(prop);
 				if(result.hasErrors()){
-					return "cadastro";
+					return "redirect:cadastro";
 				}
 				return "redirect:loginForm";
 			}

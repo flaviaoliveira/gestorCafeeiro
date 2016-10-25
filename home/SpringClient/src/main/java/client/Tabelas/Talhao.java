@@ -90,10 +90,7 @@ public class Talhao implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-
 }
-
 
 class TalhaoId implements Serializable {
 

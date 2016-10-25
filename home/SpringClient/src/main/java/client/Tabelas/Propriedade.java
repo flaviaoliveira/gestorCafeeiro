@@ -20,6 +20,7 @@ public class Propriedade implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column
 	@GeneratedValue
@@ -37,8 +38,6 @@ public class Propriedade implements Serializable{
 	@NotNull(message = "Campo Obrigatório!")
 	private double propriedade_tamanho;
 	
-	@Column
-	private String tipo_tamanho;
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
@@ -56,12 +55,25 @@ public class Propriedade implements Serializable{
 	private double altitude;
 		
 	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private String tipo_cafe;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
+	private Integer numero_talhao;
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
 	private int covas_numero;
 	
+	
+	
+	public Integer getNumero_talhao() {
+		return numero_talhao;
+	}
+	public void setNumero_talhao(Integer numero_talhao) {
+		this.numero_talhao = numero_talhao;
+	}
 	public int getId() {
 		return id_propriedade;
 	}
@@ -122,11 +134,6 @@ public class Propriedade implements Serializable{
 	public void setTipo_cafe(String tipo_cafe) {
 		this.tipo_cafe = tipo_cafe;
 	}
-	public String getTipo_tamanho() {
-		return tipo_tamanho;
-	}
-	public void setTipo_tamanho(String tipo_tamanho) {
-		this.tipo_tamanho = tipo_tamanho;
-	}
+	
 	
 }

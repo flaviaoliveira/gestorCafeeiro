@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,6 @@
 	<!-- Page Content -->
 	<hr>
 	<hr>
-
 	<div class="container" style="width: 60%">
 
 		<div class="row">
@@ -52,52 +52,37 @@
 				<div class="panel-body">
 					<form method="POST" action="">
 						<div class="form-group">
-							<h2>Cadastrar talhões</h2>
+							<h2>Talhões</h2>
 						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label class="control-label" for="nome">Nome:</label> <input name="nome" type="text" maxlength="50"
-									class="form-control">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="nome">Tamanho:</label> <input name="nome" type="text" maxlength="50"
-									class="form-control">
-							</div>
-							</div>
-							
-							<div class="col-lg-6">
-							<div class="form-group">
-								<label class="control-label" for="nome">Variedade do café:</label> <input name="nome" type="text" maxlength="50"
-									class="form-control">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="nome">Qualidade do café:</label> <input name="nome" type="text" maxlength="50"
-									class="form-control">
-							</div>
-							<div class="form-group">
-							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Adicionar</button>
-						</div>
-						</div>
-						
-						<div class="form-group">
-							<h4>Talhões Adicionados:</h4>
-						</div>
-						
-						<table class="table">
-							<thead class="thead-inverse">
-								<tr>
-									<th>Name</th>
-									<th>Tamanho</th>
-									<th>Variedade do Café</th>
-									<th>Qualidade do Café</th>
-									<th>Opção</th>
-								</tr>
-							</thead>
-							
-						</table>
-				
-                     <div class="form-group" style="width: 30%">
-							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Concluir</button>
+                       <div class="form-group">
+						<c:if test="${not empty propriedade}">
+							<table class="table">
+								<thead class="thead-inverse">
+									<tr>
+									    <th>id</th>
+										<th>Name</th>
+										<th>Tamanho</th>
+										<th>Variedade do Café</th>
+										<th>Qualidade do Café</th>
+									</tr>
+									<c:forEach var="t" items="${propriedade}">
+										<c:forEach var="i" begin="1" end="${t.numero_talhao}">
+									       <tr> 
+									        <td><input class="form-control" name="id_propriedade" type="text" value="${t.id}"></td>
+											<td><input class="form-control" name="nome" type="text" value = "Talhao ${i}" ></td>
+											<td><input class="form-control" name="area" type="text" value = "${t.propriedade_tamanho/t.numero_talhao}" ></td>
+											<td><input class="form-control" name="varieade_cafe" type="text" value = "catuai"></td>
+											<td><input class="form-control" name="qualidade_cafe" type="text" value = "bebida"></td>
+										</tr>
+									 </c:forEach>
+									</c:forEach>
+								</thead>
+							</table>
+						</c:if>
+                      </div>
+						<div class="form-group" style="width: 30%">
+							<button id="cadastraTalhao" type="submit"
+								class="btn btn-info btn-block">Concluir</button>
 						</div>
 					</form>
 				</div>

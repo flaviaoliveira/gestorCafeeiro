@@ -43,7 +43,7 @@
         <!-- Team Members Row -->
         <div class="row">
             <div class="col-lg-10">
-                <h2 class="page-header">Bem vindo(a) ao Gestor Cafeeiro!</h2>
+                <h2 class="page-header">  ${usuarioLogado.nome}, bem vindo(a) ao Gestor Cafeeiro!</h2>
             </div>
             <a href="despesas"  class="category category-3">
             <div class="col-lg-3 col-sm-3 text-center"> 

@@ -50,69 +50,58 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="cadastraTalhao">
+					<form method="POST" action="AdicionaTalhao">
 					<div class="form-group">
 							<h2>Cadastro da Lavoura</h2>
 					</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label class="control-label" for="nome">Nome da
-									propriedade:</label> <input name="nome" type="text" maxlength="50"
-									class="form-control">
+								<label class="control-label" for="nome">Nome da propriedade:</label>
+							    <input name="nome" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Tamanho da
-									propriedade:</label> <input name="propriedade_tamanho" type="text" maxlength="50"
-									class="form-control">
-									<label class="control-label"><input type="radio" name="optradio">Hectare              </label>
-                                    <label class="control-label"><input type="radio" name="optradio">Metros quadrados (m²)</label>
+								<label class="control-label" for="nome">Tamanho da propriedade:</label>
+								<input name="propriedade_tamanho" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Tamanho da
-									lavoura:</label> <input name="lavoura_tamanho" type="text" maxlength="50"
-									class="form-control">
-									<label class="control-label"><input type="radio" name="optradio">Hectare              </label>
-                                    <label class="control-label"><input type="radio" name="optradio">Metros quadrados (m²)</label>
+								<label class="control-label" for="lavoura_tamanho">Tamanho da lavoura:</label> 
+								<input name="lavoura_tamanho" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Estado:</label> <input
+								<label class="control-label" for="estado">Estado:</label> <input
 									name="estado" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Cidade:</label> <input
+								<label class="control-label" for="cidade">Cidade:</label> <input
 									name="cidade" type="text" maxlength="50" class="form-control">
 							</div>
 							
 						</div>
 						<div class="col-lg-6">
 						    <div class="form-group">
-								<label class="control-label" for="nome">Municipio/Distrito:</label>
-								<input name="municipio" type="text" maxlength="50"
-									class="form-control">
+								<label class="control-label" for="municipio">Municipio/Distrito:</label>
+								<input name="municipio" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Altitude aproximada da propriedade:</label>
-								<input name="altitude" type="text" maxlength="50"
-									class="form-control">
+								<label class="control-label" for="altitude">Altitude aproximada da propriedade:</label>
+								<input name="altitude" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Número de Covas:</label>
-								<input name="covas_numeros" type="text" maxlength="50"
-									class="form-control">
+								<label class="control-label" for="covas_numeros">Número de Covas:</label>
+								<input name="covas_numero" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Número de talhões na propriedade:</label>
-								<input name="numero_talhao" type="text" maxlength="50"
-									class="form-control">
+								<label class="control-label" for="numero_talhao">Número de talhões na propriedade:</label>
+								<input name="numero_talhao" type="text" maxlength="50" class="form-control">
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label" for="nome">Tipo do café:</label> <input
-									name="tipo_cafe" type="text" maxlength="50" class="form-control">
+								<label class="control-label" for="tipo_cafe">Tipo do café:</label> 
+								<input name="tipo_cafe" type="text" maxlength="50" class="form-control">
 							</div>
 							
 							<div class="form-group">
-							<button id="cadastraTalhao" type="submit" class="btn btn-info btn-block">Avançar</button>
+							<button id="AdicionaTalhao" type="submit" class="btn btn-info btn-block">Avançar</button>
 						</div>
 					</div>
 					</form>
