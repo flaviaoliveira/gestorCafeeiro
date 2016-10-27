@@ -48,21 +48,14 @@
                         <a href="cadastralavoura">CADASTRAR LAVOURA</a>
                     </li>
                     <li>
-                        <a href="#">REALIZAR PESQUISAS</a>
+                        <a href="#">EDITAR LAVOURA</a>
                     </li>
                     <li>
-                        <a href="#">EDITAR PERFIL </a>
-                    </li>
-                    <li>
-                        <a href="#">SOBRE</a>
-                    </li>
-                    <li>
-                        <a href="#">CONTATOS</a>
+                        <a href="#">PESQUISAR </a>
                     </li>
                      <li>
                         <a href="logout">SAIR</a>
-                    </li>
-                    
+                    </li>   
 
                 </ul>
             </div>

@@ -20,10 +20,12 @@ public class Talhao implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@Column
 	@GeneratedValue
 	private Integer id_talhao;
 	
 	@Id
+	@Column
 	private Integer id_propriedade;
 	
 	@NotNull
@@ -40,7 +42,7 @@ public class Talhao implements Serializable {
 	
 	@NotNull
 	@Column
-	private String variedade_café;
+	private String variedade_cafe;
 	
 	 
 	public int getId_talhao() {
@@ -76,11 +78,11 @@ public class Talhao implements Serializable {
 	}
 
 	public String getVariedade_café() {
-		return variedade_café;
+		return variedade_cafe;
 	}
 
 	public void setVariedade_café(String variedade_café) {
-		this.variedade_café = variedade_café;
+		this.variedade_cafe = variedade_café;
 	}
 
 	public String getNome() {

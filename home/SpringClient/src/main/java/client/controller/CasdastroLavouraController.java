@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import client.Tabelas.Propriedade;
 import client.Tabelas.Talhao;
 import client.tabelasDAO.PropriedadeDAO;
+import client.tabelasDAO.TalhaoDAO;
 
 @Controller
 @RequestMapping(value="/GestorCafeeiro")
 public class CasdastroLavouraController {
 	
 	 public Integer id;
-	 public Integer n;
 	
 	  @RequestMapping("cadastralavoura")
 	  public String cadastralavoura() {
@@ -35,43 +35,52 @@ public class CasdastroLavouraController {
 	  }
 	    
 	  @RequestMapping("AdicionaTalhao")
-	  public String AdicionaTalhao(@ModelAttribute("SpringWeb") @Valid Propriedade prop, HttpServletRequest request,
-			                       ModelMap model,BindingResult result) throws SQLException{
+	  public String AdicionaTalhao(@Valid Propriedade prop, HttpServletRequest request,
+			                       BindingResult result) throws SQLException{
 		 
 		 PropriedadeDAO propriedadeDAO = new PropriedadeDAO();
 		 propriedadeDAO.inserePropriedade(prop);
 		 
 		 if(result.hasErrors()){
-			 return "redirect:cadastralavoura";
+			 System.out.println("erro");
+			 return "redirect:AdicionaTalhao";
 		 }
-		 model.addAttribute("id",prop.getId());
-		 model.addAttribute("Cidade",prop.getCidade());
-		 model.addAttribute("municipio",prop.getMunicipio());
-		 model.addAttribute("estado",prop.getEstado());
-		 model.addAttribute("n_talhao",prop.getNumero_talhao());
-		 model.addAttribute("n_covas",prop.getCovas_numero());
-		 model.addAttribute("tam_lavoura",prop.getLavoura_tamanho());
-		 model.addAttribute("nome",prop.getNome());
-		 model.addAttribute("tam_prop",prop.getPropriedade_tamanho());
-		 model.addAttribute("cafe_tipo",prop.getTipo_cafe());
-		 
-		 List<Propriedade> propriedade = (List<Propriedade>)request.getSession().getAttribute("propriedade");
-	     if(propriedade == null){
-	    	 propriedade = new ArrayList<Propriedade>();
+		 TalhaoDAO t = new TalhaoDAO();
+		
+		 id =prop.getId();
+	     for(int i = 1; i<=prop.getNumero_talhao();i++){
+	    	 
+	    	 Talhao aux = new Talhao();
+	    	 
+	    	 aux.setId_propriedade(prop.getId());
+	    	 aux.setArea_talhao(prop.getLavoura_tamanho()/prop.getNumero_talhao());
+	    	 aux.setNome("Talhao"+i);
+	    	 aux.setVariedade_café("Catuaí");
+	    	 aux.setQualidade_cafe("Bebiba");
+	    	 
+	    	 t.insereTalhao(aux); 	
 	     }
-	     propriedade.add(prop);
-	     request.getSession().setAttribute("propriedade", propriedade);
+	    
 		 return "redirect:cadastraTalhao";
 	  }
 	   
 	  
 	  @RequestMapping("cadastraTalhao")
-	  public String cadastraTalhao(@Valid Talhao talhao, BindingResult result, ModelMap model,HttpServletRequest request){
-		  List<Propriedade> propriedade = (List<Propriedade>)request.getSession().getAttribute("propriedade");
-		  System.out.println(propriedade.get(0).getNome());
-		  model.addAttribute("propriedade", propriedade);
+	  public String cadastraTalhao(ModelMap model,HttpServletRequest request) throws SQLException{
+		  TalhaoDAO t = new TalhaoDAO();
+		  List<Talhao> talhoes = t.find(id);
+		  model.addAttribute("talhoes", talhoes);
+
 		  return "telas/cadastrarTalhao";
 	  }
+	
+	  @RequestMapping("Editar Talhao")
+	  public String cadastrartalhao(Talhao talhoes,BindingResult result,HttpServletRequest request){ 
+		  System.out.println(talhoes.getNome());
+		  System.out.println(talhoes.getId_propriedade());
+		  return "redirect:cadastraTalhao";
+	  }
+	  
 	  
 	  
 }

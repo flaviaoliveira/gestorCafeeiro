@@ -14,7 +14,7 @@ import client.Tabelas.Propriedade;
 import client.Tabelas.Talhao;
 
 
-public class TallhaoDAO {
+public class TalhaoDAO {
 	
 	 @PersistenceContext
 	 private static EntityManager manager;
@@ -34,7 +34,8 @@ public class TallhaoDAO {
 		return talhao; 
 	 }
 	 
-	 public void insereTalhao(Talhao talhao) throws SQLException{	
+	 public void insereTalhao(Talhao talhao) throws SQLException{
+		 
 		 manager = DBManager.getEntityManager();
           manager.getTransaction().begin();		     
 		  manager.persist(talhao);
@@ -45,15 +46,20 @@ public class TallhaoDAO {
 		
 	 }
 
-	public List<Talhao> find()throws SQLException {
-		
+	public List<Talhao> find(Integer id)throws SQLException {
 		manager = DBManager.getEntityManager();
         manager.getTransaction().begin();	
-        TypedQuery<Talhao>  query = manager.createQuery(
+        TypedQuery<Talhao>query = manager.createQuery(
         	    "SELECT p "+
-        	    "FROM talhao p ", 
-        	Talhao.class);		        
+        	    "FROM Talhao p "+
+        	    "WHERE p.id_propriedade = :id", 
+        	Talhao.class);		 
+         query.setParameter("id", id);
+         
          List<Talhao> results = query.getResultList();
+         if(results == null){
+        	 System.out.println("nulo");
+         }
 		 manager.flush();
 	     manager.clear();
 	     manager.getTransaction().commit();
