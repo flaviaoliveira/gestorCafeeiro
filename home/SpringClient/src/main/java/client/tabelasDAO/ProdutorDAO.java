@@ -7,10 +7,6 @@ import javax.persistence.EntityManager;
 
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.websocket.Session;
-
-import org.hibernate.exception.internal.SQLExceptionTypeDelegate;
 
 import client.BDManege.DBManager;
 import client.Tabelas.Produtor;

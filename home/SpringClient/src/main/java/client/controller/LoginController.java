@@ -8,8 +8,6 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import client.Tabelas.Produtor;
 import client.tabelasDAO.Login;
@@ -19,7 +17,6 @@ import client.tabelasDAO.ProdutorDAO;
 @RequestMapping(value="/GestorCafeeiro")
 public class LoginController {
 
-	
 
 	@RequestMapping("loginForm")
 	  public String loginForm() {
@@ -33,6 +30,7 @@ public class LoginController {
 			return "redirect:loginForm";
 		} else {
 			Produtor usuario = p.find(login);
+			
 			if (usuario != null) {
 				session.setAttribute("usuarioLogado", usuario);
 				return "telas/page";

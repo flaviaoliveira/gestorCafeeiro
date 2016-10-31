@@ -50,27 +50,25 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-						<div class="form-group">
-							<h2>Recomendação de Adubação e Calagem</h2>
-						</div>
-                        <form action="recomendacaoPlantio">
-						<div class="form-group">
-							<button value="recomendacaoPlantio" id="recomendacaoPlantio" type="submit"
-								class="btn btn-info btn-block">Plantio e Formação</button>
-						</div>
-						</form>
-						<form action="recomendacaoLavouraProducao">
-						<div class="form-group">
-							<button value="recomendacaoLavouraProducao" id="recomendacaoLavouraProducao" type="submit"
-								class="btn btn-info btn-block">Lavoura em Produção</button>
-						</div>
-						</form>
-						<form action="recomendacaoLavouraRecepada">
-						<div class="form-group">
-							<button value="recomendacaoLavouraRecepada" id="recomendacaoLavouraRecepada" type="submit"
-								class="btn btn-info btn-block">Lavoura Recepada</button>
-						</div>
-						</form>
+					<div class="form-group">
+						<h2>Recomendação para Plantio e Formação</h2>
+					</div>
+					<div class="col-lg-6">
+						<label for="lavoura">Lavoura:</label> <select class="form-control"
+							id="sel1" name="id_propriedade">
+							<c:forEach var="lavoura" items="${lavouras}">
+								<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="col-lg-6">
+						<label class="control-label">Data:</label> <input name="data"
+							type="date" class="form-control">
+					</div>
+					
+
+
+
 				</div>
 			</div>
 		</div>

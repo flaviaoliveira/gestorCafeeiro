@@ -6,10 +6,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.persistence.*;
 
 @Entity
 @Table
@@ -60,6 +58,10 @@ public class Propriedade implements Serializable{
 	
 	@Column
 	@NotNull(message = "Campo Obrigatório!")
+	private String variedade;
+	
+	@Column
+	@NotNull(message = "Campo Obrigatório!")
 	private Integer numero_talhao;
 	
 	@Column
@@ -68,17 +70,23 @@ public class Propriedade implements Serializable{
 	
 	
 	
+	public int getId_propriedade() {
+		return id_propriedade;
+	}
+	public void setId_propriedade(int id_propriedade) {
+		this.id_propriedade = id_propriedade;
+	}
+	public String getVariedade() {
+		return variedade;
+	}
+	public void setVariedade(String variedade) {
+		this.variedade = variedade;
+	}
 	public Integer getNumero_talhao() {
 		return numero_talhao;
 	}
 	public void setNumero_talhao(Integer numero_talhao) {
 		this.numero_talhao = numero_talhao;
-	}
-	public int getId() {
-		return id_propriedade;
-	}
-	public void setId(int id) {
-		this.id_propriedade = id;
 	}
 	public String getNome() {
 		return nome;
