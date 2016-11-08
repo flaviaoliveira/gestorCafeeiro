@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import client.Tabelas.Produtor;
 import client.Tabelas.Propriedade;
 import client.tabelasDAO.PropriedadeDAO;
+import client.tabelasDAO.RecomendaPlantio;
 
 @Controller
 @RequestMapping(value="/GestorCafeeiro")
@@ -31,6 +32,16 @@ public class RecomendacaoController {
 			
 			prop = p.findPropriedade(usuario.getId_produtor());
 			model.addAttribute("lavouras", prop);
+			
+			RecomendaPlantio plantio = new RecomendaPlantio();
+			plantio.setCalagem(0);
+			plantio.setCalcario(0);
+			plantio.setCobertura("0-0-0");
+			plantio.setEsterco(0);
+			plantio.setFte(20);
+			plantio.setSuperfosfato(0);
+			model.addAttribute("plantio", plantio);
+		
 	    return "telas/recomendacaoPlantio";
 	  }
   
