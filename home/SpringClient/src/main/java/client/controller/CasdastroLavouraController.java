@@ -1,13 +1,11 @@
 package client.controller;
 
 import java.sql.SQLException;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,10 +30,8 @@ public class CasdastroLavouraController {
 	  @RequestMapping(value = "validaLavoura", method = RequestMethod.POST)
 	  public String validaLaloura(@Valid Propriedade prop, HttpServletRequest request,
 			                       BindingResult result,HttpSession session) throws SQLException{
-		 System.out.println("entrou");
 		 
 		 if(result.hasErrors()){
-			 System.out.println("Erro");
 			 return "redirect:validaLavoura";
 		 }
 		 

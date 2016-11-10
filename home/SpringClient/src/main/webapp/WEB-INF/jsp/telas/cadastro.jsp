@@ -7,18 +7,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <title>Cadastro</title>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<div>
-			<jsp:include page="menu.jsp" />
+		<div class="container">
+			<div>
+				<jsp:include page="menu.jsp" />
+			</div>
 		</div>
-	</div>
 	</nav>
 	
     <hr>
@@ -37,7 +35,7 @@
 						
 						<div class="form-group" >
 							<label class="control-label" for="nome" >Nome</label> 
-							<input name="nome" type="text" maxlength="50" class="form-control">
+							<input name="nome" type="text" class="form-control">
 						    <form:errors path= "Produtor.nome"/>
 						</div>
 						<div class="form-group">
@@ -47,13 +45,13 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="email">Email</label> 
-							<input name="email"   type="text" maxlength="50" class="form-control">
+							<input name="email" type="text" class="form-control">
 							<form:errors path= "Produtor.email"/>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="senha">Senha</label>
 							<input name="senha" type="password" maxlength="25" class="form-control"
-							 placeholder=" No minímo 6 caracteres" length="40">
+							 placeholder=" No minímo 6 caracteres">
 							<form:errors path= "Produtor.senha"/>
 						</div>
 						<div class="form-group">

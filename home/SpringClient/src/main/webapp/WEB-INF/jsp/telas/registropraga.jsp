@@ -9,21 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Gestor Cafeeiro</title>
-
-<link
-	href="<c:url value="/assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" />"
-	rel="stylesheet" media="screen">
-
-<script type="text/javascript"
-	src="<c:url value="/assets/jquery/jquery-1.11.3.min.js" />"></script>
-
-<script type="text/javascript"
-	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/bootstrap.min.js" />"></script>
-
-<script type="text/javascript"
-	src="<c:url value="/assets/js/request.js" />"></script>
-
-
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -97,13 +82,6 @@
 			</div>
 		</div>
 	</footer>
-
-
-	<!-- jQuery -->
-	<script src="/assets/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/assets/js/bootstrap.min.js"></script>
 
 </body>
 </html>

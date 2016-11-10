@@ -1,7 +1,6 @@
 package client.tabelasDAO;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import client.BDManege.DBManager;
-import client.Tabelas.Produtor;
 import client.Tabelas.Propriedade;
 import client.Tabelas.Propriedade_Produtor;
 

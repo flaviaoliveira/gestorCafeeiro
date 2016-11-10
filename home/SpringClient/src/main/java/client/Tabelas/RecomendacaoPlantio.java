@@ -3,8 +3,8 @@ package client.Tabelas;
 
 import java.util.Date;
 
-import javax.annotation.ManagedBean;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -12,10 +12,9 @@ import javax.persistence.Table;
 
 import java.io.Serializable;
 
-
+@Entity
 @Table
-@ManagedBean
-@IdClass(Praga_PropriedadeId.class)
+@IdClass(RecomendacaoPlantioId.class)
 public class RecomendacaoPlantio implements Serializable{
 	
     private static final long serialVersionUID = 1L;

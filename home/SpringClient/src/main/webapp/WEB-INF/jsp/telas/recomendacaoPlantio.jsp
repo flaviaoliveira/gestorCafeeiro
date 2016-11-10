@@ -9,29 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Gestor Cafeeiro</title>
-<!--
-	O bootstrap é adicionado apenas para exemplificar.
-	-->
-<link
-	href="<c:url value="/assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" />"
-	rel="stylesheet" media="screen">
-
-<!--
-	O jquery é necessário para o bootstrap.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/jquery/jquery-1.11.3.min.js" />"></script>
-<!--
-	O bootstrap é adicionado apenas para exemplificar.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/bootstrap.min.js" />"></script>
-
-<!--
-	Este é um arquivo com o método que faz a requisição para o webservice.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/js/request.js" />"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -47,10 +24,12 @@
 	<div class="container" style="width: default">
 		<div class="row">
 			<div class="panel panel-primary">
+			
 				<div class="panel-body">
 					<div class="form-group">
 						<h2>Recomendação para Plantio e Formação</h2>
 					</div>
+					<form  method="POST" action = "insereAnalisePlantio">
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label for="lavoura">Lavoura:</label> <select
@@ -68,9 +47,9 @@
 							<div class="form-inline">
 
 								<label class="control-label">Dimensões da cova(cm):</label> 
-								<input name="d1" id = "d1"type="text" class="form-control"  style="width: 10%" onblur="calcDSBCP()">
-								<input name="d2" id = "d2" type="text" class="form-control" style="width: 10%" onblur="calcDSBCP()">
-							    <input name="d3" id = "d3" type="text" class="form-control" style="width: 10%"  onblur="calcDSBCP()">
+								<input name="dimensao1" id = "d1"type="text" class="form-control"  style="width: 10%" onblur="calcDSBCP()">
+								<input name="dimensao2" id = "d2" type="text" class="form-control" style="width: 10%" onblur="calcDSBCP()">
+							    <input name="dimensao3" id = "d3" type="text" class="form-control" style="width: 10%"  onblur="calcDSBCP()">
 
 							</div>
 						</div>
@@ -83,40 +62,45 @@
 									<tbody>
 										<tr>
 											<td style="width: 30%">P (Mehlich-1)</td>
-											<td style="width: 15%"><input name="P" id = "P" type="text"
+											<td style="width: 15%"><input name="p" id = "P" type="text"
 												class="form-control" onblur="calcDSBCP()"></td>
 											<td style="width: 30%">mg/dm³</td>
 										</tr>
 										<tr>
 											<td>K (Mehlich-1)</td>
-											<td><input name="K"  id = "K" type="text" class="form-control"  onblur="calcAdubacaoCobertura()"></td>
+											<td><input name="k"  id = "K" type="text" class="form-control"  onblur="calcAdubacaoCobertura()"></td>
 											<td>mg/dm³</td>
 										</tr>
 										<tr>
 											<td>Matéria Org.</td>
-											<td><input name="MO"  id = "MO" type="text" class="form-control" onblur="calcEsterco()"></td>
+											<td><input name="mo"  id = "MO" type="text" class="form-control" onblur="calcEsterco()"></td>
 											<td>%</td>
 										</tr>
 										<tr>
 											<td>Sat. Bases(V)</td>
-											<td><input name="SB" id = "SB" type="text" class="form-control" onblur="calcDSBCP()"></td>
+											<td><input name="sb" id = "SB" type="text" class="form-control" onblur="calcDSBCP()"></td>
 											<td>%</td>
 										</tr>
 										<tr>
 											<td>CTC do solo (T)</td>
-											<td><input name="CTC" id = "CTC" type="text" class="form-control" onblur="calcDSBCP()"></td>
+											<td><input name="ctc" id = "CTC" type="text" class="form-control" onblur="calcDSBCP()"></td>
 											<td>cmolc/dm3</td>
 										</tr>
 										<tr>
 											<td>PRNT do calcário</td>
-											<td><input name="PRNT"  id = "PRNT" type="text" class="form-control" onblur="calcDSBCP()"></td>
+											<td><input name="prnt"  id = "PRNT" type="text" class="form-control" onblur="calcDSBCP()"></td>
 											<td>%</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 						</div>
+						
+						<label class="control-label">OBSERVAÇÃO: Caso não seja possível a incorporação do calcário,
+						dividir em doses de, no máximo 3 t/ha, por vez, espaçados de um periodo de, no mínimo, 10 mesesS </label>
+						
 					</div>
+					</form>
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label class="control-label">Aplicação na cova:</label>
@@ -141,7 +125,7 @@
 									</tr>
 									<tr> 
 									   <th><label class="control-label">Calagem:</label></th>
-										<td><label class="control-label" id = "calagem">${plantio.calagem}</label>t/ha de calcário</td>
+										<td><label class="control-label" id = "calagem">${plantio.calagem}</label>  t/ha de calcário (Ler observação)</td>
 										
 									</tr>		
 								</tbody>
@@ -200,10 +184,18 @@
 								</tbody>
 							</table>
 						</div>
+						
+						<div class="form-group pull-right">
+							<button value = "insereAnalisePlantio" id="insereAnalise" type="submit"
+							        class="btn btn-info btn-block">Salvar resultado da Análise</button>
+						</div>
+						
 					</div>
 				</div>
+				
 			</div>
 		</div>
+		
 		<!-- Footer -->
 		<footer>
 			<div class="row">
@@ -217,9 +209,6 @@
 
 	</div>
 	<!-- /.container -->
-
-	<!-- jQuery -->
-<!-- 	<script src="/assets/js/jquery.js"></script> -->
 	<script>
       function calcEsterco() {
     	   
@@ -306,7 +295,7 @@
   	        c5.innerHTML = "20-00-20";
   	        c6.innerHTML = "20-00-20";
   	     }
-  	     if (K.value >= 60 && K < 120){
+  	     if (K.value >= 60 && K.value < 120){
   	    	c1.innerHTML = "20-00-15";
   	        c2.innerHTML = "20-00-15";
   	        c3.innerHTML = "20-00-15";
@@ -315,7 +304,7 @@
   	        c6.innerHTML = "20-00-15";
 	      
 	     }
-  	     if (K.value >= 120 && K < 220){
+  	     if (K.value >= 120 && K.value < 220){
   	    	c1.innerHTML = "20-00-10";
   	        c2.innerHTML = "20-00-10";
   	        c3.innerHTML = "20-00-10";
@@ -335,9 +324,6 @@
 	     }   
   	}
      </script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/assets/js/bootstrap.min.js"></script>
 
 </body>
 </html>

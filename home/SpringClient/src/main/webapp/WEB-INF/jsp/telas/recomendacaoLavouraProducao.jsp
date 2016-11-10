@@ -9,30 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Gestor Cafeeiro</title>
-<!--
-	O bootstrap é adicionado apenas para exemplificar.
-	-->
-<link
-	href="<c:url value="/assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" />"
-	rel="stylesheet" media="screen">
 
-<!--
-	O jquery é necessário para o bootstrap.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/jquery/jquery-1.11.3.min.js" />"></script>
-<!--
-	O bootstrap é adicionado apenas para exemplificar.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/bootstrap.min.js" />"></script>
-
-<!--
-	Este é um arquivo com o método que faz a requisição para o webservice.
-	-->
-<script type="text/javascript"
-	src="<c:url value="/assets/js/request.js" />"></script>
-</head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -54,7 +31,7 @@
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label for="lavoura">Lavoura:</label> <select
-								class="form-control" id="sel1" name="id_propriedade">
+								class="form-control" id="id_propriedade" name="id_propriedade">
 								<c:forEach var="lavoura" items="${lavouras}">
 									<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
 								</c:forEach>
@@ -67,14 +44,21 @@
 						<div class="form-group">
 							<div class="form-inline">
 
-								<label class="control-label">Espaçamento(mxm):</label> <input
-									name="d1" type="text" class="form-control" style="width: 10%">
-								<label class="control-label">X</label> <input name="d2"
-									type="text" class="form-control" style="width: 10%"> <label
-									class="control-label">Produtividade(sc/ha):</label> <input
-									name="d1" type="text" class="form-control" style="width: 10%">
-
-
+								<label class="control-label">Espaçamento(mxm):</label> 
+								<input name="m" id = "m" onblur="controll()" type="text" class="form-control" style="width: 10%">
+								<label class="control-label">X</label> 
+								<input name="n" id = "n" onblur="controll()" type="text" class="form-control" style="width: 10%"> 
+								<label> __ </label>
+								<label class="control-label" id = "pl_ha"> ${producao.pl_ha }</label> 
+								<label>pl/ha</label> 
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-inline">								 
+								<label class="control-label">Produtividade(sc/ha):</label> 
+								<input name="produtividade" id ="produtividade" onblur="controll()" type="text" class="form-control" style="width: 10%">
+								<label class="control-label">Número de covas do talhão:</label> 
+								<input name="n_cova" id = "n_covas" type="text" class="form-control" style="width: 10%">
 							</div>
 						</div>
 						<div class="form-group">
@@ -86,44 +70,38 @@
 									<tbody>
 										<tr>
 											<td style="width: 30%">P (Mehlich-1)</td>
-											<td style="width: 20%"><input name="P" type="text"
-												class="form-control"></td>
+											<td style="width: 20%"><input name="P" id ="p" type="text" onblur="controll()" class="form-control"></td>
 											<td style="width: 30%">mg/dm³</td>
 										</tr>
 										<tr>
 											<td>K (Mehlich-1)</td>
-											<td><input name="K" type="text" class="form-control"></td>
+											<td><input name="K" id="k" onblur="controll()" type="text" class="form-control"></td>
 											<td>mg/dm³</td>
 										</tr>
 										<tr>
 											<td>Matéria Org.</td>
-											<td><input name="MO" type="text" class="form-control"></td>
+											<td><input name="MO" id = "mo" onblur="controll()" type="text" class="form-control"></td>
 											<td>%</td>
 										</tr>
 										<tr>
 											<td>Fósforo Remanescente (P-rem)</td>
-											<td><input name="SB" type="text" class="form-control"></td>
+											<td><input name="fosforo" id = "fosforo" onblur="controll()" type="text" class="form-control"></td>
 											<td>mg/L</td>
 										</tr>
 										<tr>
 											<td>Sat. Bases(V)</td>
-											<td><input name="SB" type="text" class="form-control"></td>
+											<td><input name="SB" id = "sb" onblur="controll()" type="text" class="form-control"></td>
 											<td>%</td>
 										</tr>
 										<tr>
 											<td>CTC do solo (T)</td>
-											<td><input name="CTC" type="text" class="form-control"></td>
+											<td><input name="CTC" id = "ctc" onblur="controll()" type="text" class="form-control"></td>
 											<td>cmolc/dm3</td>
 										</tr>
 										<tr>
 											<td>PRNT do calcário</td>
-											<td><input name="PRNT" type="text" class="form-control"></td>
+											<td><input name="PRNT" id = "prnt" type="text" onblur="controll()" class="form-control"></td>
 											<td>%</td>
-										</tr>
-										<tr>
-											<td>Número Covas do talhão</td>
-											<td><input name="PRNT" type="text" class="form-control"></td>
-											<td>Covas</td>
 										</tr>
 									</tbody>
 								</table>
@@ -138,7 +116,7 @@
 								<tbody>
 								<tr>
 									<th style="width: 30%"> Calagem:</th>
-									<td style="width: 30%"> 000 </td>
+									<td style="width: 30%" id = "calagem"> ${producao.calagem} </td>
 									<td style="width: 30%">t/ha de calcário</td>
 							   </tr>
 								</tbody>
@@ -154,15 +132,15 @@
 							<table class="table">
 								<tbody>
 									<tr>
-										<th>000</th>
+										<th id = "N">${producao.n}</th>
 										<td>kg/ha/ano de N</td>
 									</tr>
 									<tr>
-										<th>000</th>
+										<th id = "PO">${producao.PO}</th>
 										<td>kg/ha/ano P2O5</td>
 									</tr>
 									<tr>
-										<th>000</th>
+										<th id = "KO">${producao.KO}</th>
 										<td>kg/ha/ano K20</td>
 									</tr>
 								</tbody>
@@ -174,9 +152,8 @@
 								<tbody>
 								<tr>
 									<th style="width: 30%"> Doses de fertilizantes:</th>
-									<td style="width: 30%"> Número de pacelas </td>
-									<td style="width: 20%"><input name="PRNT" type="text"
-											class="form-control"></td>
+									<td style="width: 30%"> Número de pacelas: </td>
+									<td style="width: 20%"><input name="parcelas" id = "parcelas" onblur="controll()" type="text" class="form-control"></td>
 							   </tr>
 								</tbody>
 							</table>
@@ -186,27 +163,27 @@
 								<tbody>
 									<tr>
 									    <th>1ª opção:</th>
-										<th> 000</th>
+										<th id = "dose1"> ${producao.dose1}</th>
 										<td>Aplicação de </td>
-										<th> 000</th>
+										<th id ="apl1"> ${producao.apl1}</th>
 										<td>g/planta de</td>
-										<th> 000--- 000 000 --- </th>
+										<th id = "f1">${producao.f1}  </th>
 									</tr>
 									<tr>									
 									    <th></th>
-										<th> 000</th>
+										<th id = "dose2"> ${producao.dose2}</th>
 										<td>Aplicações de </td>
-										<th> 000</th>
+										<th id = "apl2"> ${producao.apl2}</th>
 										<td>g/planta de</td>
-										<th> 000--- 000 000 --- </th>
+										<th id = "f2">${producao.f2}</th>
 									</tr>
 									<tr>
 									    <th>2ª opção:</th>
-										<th> 000</th>
+										<th id ="dose3"> ${producao.dose3}</th>
 										<td>Aplicações de </td>
-										<th> 000</th>
+										<th id = "apl3">${producao.apl3}</th>
 										<td>g/planta de</td>
-										<th> 000--- 000 000 --- </th>
+										<th id = "f3">${producao.f3} </th>
 									</tr>
 								</tbody>
 							</table>
@@ -218,24 +195,24 @@
 								<tbody>
 									<tr>
 										<th>Quantidade:</th>
-										<th>ha</th>
-										<th>Area do talhão: XX ha</th>
+										<td>ha</td>
+										<td>Area do talhão: <label class="control-label" id = "area_talhao">${producao.area_talhao}</label> ha</td>
 										
 									</tr>
 									<tr>
 										<td>Formulado(cs/ha):</td>
-										<td>XX</td>
-										<th>000</th>
+										<th id ="ha_formulado">${producao.ha_formulado}</th>
+										<th id ="area_formulado">${producao.area_formulado}</th>
 									</tr>
 									<tr>
 										<td>Superfosfato simples(cs/ha):</td>
-										<td>XX</td>
-										<th>000</th>
+										<th id ="ha_superfosfato">${producao.ha_superfosfato}</th>
+										<th id ="area_superfosfato">${producao.area_superfosfato}</th>
 									</tr>
 									<tr>
 										<td>Calcário(cs/ha):</td>
-										<td>XX</td>
-										<th>000</th>
+										<th id ="ha_calcario">${producao.ha_calcario}</th>
+										<th id ="area_calcario">${producao.area_calcario}</th>
 									</tr>
 								</tbody>
 							</table>
@@ -257,12 +234,95 @@
 
 	</div>
 	<!-- /.container -->
+	<script>
+	function controll(){
+		
+		var m = document.getElementById("m");
+		var n = document.getElementById("n");
+		var plha_o = Math.round(10000/(n.value*m.value));
+		// Calcular o pl_ha
+		var pl_ha = document.getElementById("pl_ha");
+		if(n.value != 0 && m.value != 0){
+	       pl_ha.innerHTML = Math.round(10000/(n.value*m.value));
+	    }
+		// Quantidade de Nutrientes
+		var produtividade = document.getElementById("produtividade");
+		var mo = document.getElementById("mo");
+		
+		var mo_o = 10;
+		if(mo.value <= 10){
+			mo_o = mo.value;
+		}
+		
+		// calcula valor de N
+		var N = document.getElementById("N");
+		var N_o = Math.round(226.417 + 2.465 * produtividade.value - (10*mo_o));
+		if(N_o>0){
+			N.innerHTML = N_o;
+		}else{
+			N.innerHTML = 0;
+		}
+		
+		
+		//calcula valor de P2O5
+		var po = document.getElementById("PO");
+		var fosforo = document.getElementById("fosforo");
+		var p = document.getElementById("p");
+		var PO_o = Math.round((189 + (0.537 * produtividade.value) - (8.26 * p.value) - (2.1 * fosforo.value))- 2 * mo_o);
+		if(PO_o>0){
+			 po.innerHTML = PO_o;
+		 }else{
+			 po.innerHTML = 0;
+			 PO_o = 0;
+		 }
+		
+		//Calcula  o valor de k20
+		var k = document.getElementById("k");
+		var ko = document.getElementById("KO");
+		var KO_o = Math.round((236.45+(2.381*produtividade.value)-(1.21*k.value))-(mo_o*3));
+		if(KO_o>0){
+			ko.innerHTML = KO_o;
+		}else{
+			ko.innerHTML = 0;
+			KO_o=0;
+		}
+		
+		//calagem 
+		var prnt = document.getElementById("prnt");
+		var ctc  = document.getElementById("ctc");
+		var sb   = document.getElementById("sb");
+		var calagem  = document.getElementById("calagem");
+		var cal = (ctc.value*(60-sb.value)/prnt.value);
+		if(cal>0){
+			calagem.innerHTML = parseFloat(cal.toFixed(1)); 
+		}else{
+			calagem.innerHTML = 0; 
+			cal = 0;
+		}
+		
+		//doses de fertilizantes
+		var parcelas = document.getElementById("parcelas");
+		var dose1 = document.getElementById("dose1");
+		var dose2 = document.getElementById("dose2");
+		var dose3 = document.getElementById("dose3");
+		var apl1  = document.getElementById("apl1");
+		var apl2  = document.getElementById("apl2");
+		var apl3  = document.getElementById("apl3");
+		var f2  = document.getElementById("f2");
+		var f3  = document.getElementById("f3");
+		
+		dose1.innerHTML = 1;
+		dose2.innerHTML = parcelas.value;
+		dose3.innerHTML = parcelas.value;
 
-	<!-- jQuery -->
-	<script src="/assets/js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/assets/js/bootstrap.min.js"></script>
-
+		var aplPO = Math.round(((PO_o * 5)/plha_o)*1000);
+		var aplNO = Math.round((((N_o * 5)/plha_o)*1000)/parcelas.value);
+		apl1.innerHTML = aplPO;
+		apl2.innerHTML = aplNO;
+		apl3.innerHTML = aplNO;
+		
+		
+	}
+   </script>
 </body>
 </html>
